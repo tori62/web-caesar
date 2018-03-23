@@ -25,7 +25,10 @@ form = """
             </style>
         </head>
         <body>
-
+            <form action="/secret-code" method=["POST"]
+                <label 
+                    <input type="text" name="rot" />
+                    <input type="text" name="textarea" />
 
         </body>
     </html> """
@@ -34,6 +37,6 @@ form = """
 def index():
 
 
-
+    return info
 
 app.run()
