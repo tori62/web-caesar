@@ -1,6 +1,6 @@
 from helpers import alphabet_position, rotate_character
 
-def encrypt(text,rot):
+def rotate_string(text,rot):
     new_string = ''
     for char in text:
         if char == ' ':
@@ -12,7 +12,7 @@ def encrypt(text,rot):
 def main():
     message = input('Type a message:')
     rotate = int(input('Rotate by:'))
-    print(encrypt(message,rotate))
+    print(rotate_string(message,rotate))
 
 if __name__ == "__main__":
     main()
