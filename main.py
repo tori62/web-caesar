@@ -26,17 +26,27 @@ form = """
         </head>
         <body>
             <form action="/secret-code" method=["POST"]
-                <label 
-                    <input type="text" name="rot" />
-                    <input type="text" name="textarea" />
-
+                <label for="rotate-by">
+                    Rotate by:
+                    <input type="text" name="rot" value=0>
+                </lable>
+                <br>
+                <label>
+                    <textarea name="textarea"></textarea>
+                </label>
+                <br>
+                <input type="submit" name="Submit Query"/>
         </body>
     </html> """
 
-@app.route("/")
+@app.route("/secret-code", methods=['GET'])
 def index():
+    return form
 
+app.run()
 
-    return info
+#@app.route("/secret-code", methods=['POST'])
+#def index():
+#    return form
 
 app.run()
