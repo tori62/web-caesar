@@ -33,25 +33,28 @@ form = """
                 </lable>
                 <br>
                 <label>
-                    <textarea name="textarea"></textarea>
+                    <textarea name="text"></textarea>
                 </label>
                 <br>
                 <input type="submit" name="Submit Query"/>
             </form>
         </body>
-    </html> """
+    </html> 
+"""
 
-@app.route("/secret-code",methods=['POST'])
+@app.route("/", methods=['GET'])
 def index():
     return form
 
-#@app.route("/", methods=['POST'])
-#def encrypt(rot,text):
-#    rot = int(request.form('rot'))
-#    text = request.form('textarea')
-#    response = rotate_string(rot,text).format()
-#    content = form + "The encrypted message is" + response
-#    return content
+@app.route("/", methods=['POST'])
+def encrypt():
+    rotate = request.form['rot']
+    rotate = int(rotate)
+    text_input = request.form['text']
+    response = rotate_string(text_input,rotate)
+#    content = "<h1>" + response + "</h1>"
+#    content = "<br>" + rotate + "<br>" + text_input
+    return response
 
 app.run()
 
