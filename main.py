@@ -9,20 +9,20 @@ form = """
     <html>
         <head>
             <style>
-                form {
+                form {{
                     background-color: #eee;
                     padding: 20px;
                     margin: 0 auto;
                     width: 540px;
                     font: 16px sans-serif;
                     broder-radius: 10px;
-                }
+                }}
 
-                textarea{
+                textarea{{
                     margin: 10px 0;
                     width: 540px;
                     height: 120px;
-                }
+                }}
             </style>
         </head>
         <body>
@@ -33,7 +33,7 @@ form = """
                 </lable>
                 <br>
                 <label>
-                    <textarea name="text"></textarea>
+                    <textarea name="text">{0}</textarea>
                 </label>
                 <br>
                 <input type="submit" name="Submit Query"/>
@@ -44,7 +44,7 @@ form = """
 
 @app.route("/", methods=['GET'])
 def index():
-    return form
+    return form.format('')
 
 @app.route("/", methods=['POST'])
 def encrypt():
@@ -52,12 +52,6 @@ def encrypt():
     rotate = int(rotate)
     text_input = request.form['text']
     response = rotate_string(text_input,rotate)
-#    content = "<h1>" + response + "</h1>"
-#    content = "<br>" + rotate + "<br>" + text_input
-    return response
+    return form.format(response)
 
 app.run()
-
-#@app.route("/secret-code", methods=['POST'])
-#def index():
-#    return form
